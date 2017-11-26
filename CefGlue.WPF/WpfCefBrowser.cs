@@ -44,7 +44,7 @@ namespace Xilium.CefGlue.WPF
 
         private readonly ILogger _logger;
 
-        public WpfCefBrowser() : this(new NLogLogger("WpfCefBrowser"))
+        public WpfCefBrowser() : this(new ILogger())
         {
         }
 
@@ -135,7 +135,7 @@ namespace Xilium.CefGlue.WPF
 
 
         internal void OnLoadStart(CefFrame frame)
-        { 
+        {
             if (this.LoadStart != null)
             {
                 var e = new LoadStartEventArgs(frame);
@@ -145,7 +145,7 @@ namespace Xilium.CefGlue.WPF
 
         internal void OnLoadEnd(CefFrame frame, int httpStatusCode)
         {
-            if(this.LoadEnd != null)
+            if (this.LoadEnd != null)
             {
                 var e = new LoadEndEventArgs(frame, httpStatusCode);
                 this.LoadEnd(this, e);
@@ -641,21 +641,21 @@ namespace Xilium.CefGlue.WPF
             // TODO: simplify this
             //_mainUiDispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
             //{
-                try
-                {
-                    // The simulated screen and view rectangle are the same. This is necessary
-                    // for popup menus to be located and sized inside the view.
-                    browserRect.X = browserRect.Y = 0;
-                    browserRect.Width = (int)_browserWidth;
-                    browserRect.Height = (int)_browserHeight;
+            try
+            {
+                // The simulated screen and view rectangle are the same. This is necessary
+                // for popup menus to be located and sized inside the view.
+                browserRect.X = browserRect.Y = 0;
+                browserRect.Width = (int)_browserWidth;
+                browserRect.Height = (int)_browserHeight;
 
-                    rectProvided = true;
-                }
-                catch (Exception ex)
-                {
-                    _logger.ErrorException("WpfCefBrowser: Caught exception in GetViewRect()", ex);
-                    rectProvided = false;
-                }
+                rectProvided = true;
+            }
+            catch (Exception ex)
+            {
+                _logger.ErrorException("WpfCefBrowser: Caught exception in GetViewRect()", ex);
+                rectProvided = false;
+            }
             //}));
 
             if (rectProvided)

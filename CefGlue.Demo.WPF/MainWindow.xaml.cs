@@ -25,13 +25,9 @@ namespace CefGlue.Demo.WPF
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                BrowserWindow bw = new BrowserWindow();
-                bw.Show();
-            }
+            wpfBrowser.Dispose();
         }
     }
 }

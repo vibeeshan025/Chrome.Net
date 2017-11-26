@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Xilium.CefGlue;
 
 namespace CefGlue.Demo.WPF
 {
@@ -13,5 +14,9 @@ namespace CefGlue.Demo.WPF
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            CefBrowserLoader.Initialize();
+        }
     }
 }

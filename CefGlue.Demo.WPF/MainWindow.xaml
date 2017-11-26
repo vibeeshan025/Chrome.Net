@@ -6,9 +6,19 @@
         xmlns:wpf="clr-namespace:Xilium.CefGlue.WPF;assembly=Xilium.CefGlue.WPF"
         xmlns:local="clr-namespace:CefGlue.Demo.WPF"
         mc:Ignorable="d"
+        Closed="Window_Closed"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="37" Margin="223,112,0,0" VerticalAlignment="Top" Width="110" Click="Button_Click"/>
+        <wpf:WpfCefBrowser x:Name="wpfBrowser" Grid.Column="0" StartUrl="http://www.google.com">
+            <!--<wpf:WpfCefBrowser.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.8" ScaleY="0.8" CenterX="400" CenterY="300" />
+                    <RotateTransform Angle="-10" CenterX="400" CenterY="300" />
+                </TransformGroup>
+            </wpf:WpfCefBrowser.RenderTransform>-->
+
+        </wpf:WpfCefBrowser>
+        <Button Content="Button" HorizontalAlignment="Left" Height="37" Margin="223,112,0,0" VerticalAlignment="Top" Width="110"/>
 
     </Grid>
 </Window>
