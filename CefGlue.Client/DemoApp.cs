@@ -9,7 +9,7 @@
     {
         protected override void OnBeforeCommandLineProcessing(string processType, CefCommandLine commandLine)
         {
-            ;
+            
         }
     }
 }

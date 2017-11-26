@@ -12,7 +12,7 @@
             <ColumnDefinition/>
             <!--<ColumnDefinition/>-->
         </Grid.ColumnDefinitions>
-        <wpf:WpfCefBrowser Grid.Column="0" StartUrl="http://www.google.com">
+        <wpf:WpfCefBrowser x:Name="wpfBrowser" Grid.Column="0" StartUrl="http://www.google.com">
 
 
             <!--<wpf:WpfCefBrowser.RenderTransform>
