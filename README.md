@@ -19,11 +19,11 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 
 # build the code from scratch.
 
-  1. Run the solution in **VS 2017** or higher (Tested with community edition).
-  1. Set **CefGlue.Demo.WPF** or any (_CefGlue.Demo.*_) as startup project.
-  1. Refer the variable called **CEF_VERSION** in **CefGlue\Interop\version.g.cs** 
-  1. Goto http://opensource.spotify.com/cefbuilds/index.html and search for build used in **CEF_VERSION**
-  1. Download **Minimal Distribution** or **Sample Application** inside **Windows 32-bit Builds**
-  1. If you are using **Sample Application** binary copy all the files inside Release folder except cefclient.exe to your debug/release folder. If you are using **Minimal Distribution** then copy files inside Release and Resources to your debug/release folder. 
-  1. You can remive any *.lib, since they are not required for production.
-  1.Now you will be able to build and run the solution.
+1. Run the solution in **VS 2017** or higher (Tested with community edition).
+1. Set **CefGlue.Demo.WPF** or any (_CefGlue.Demo.*_) as startup project.
+1. Refer the variable called **CEF_VERSION** in **CefGlue\Interop\version.g.cs** 
+1. Goto http://opensource.spotify.com/cefbuilds/index.html and search for build used in **CEF_VERSION**
+1. Download **Minimal Distribution** or **Sample Application** inside **Windows 32-bit Builds**
+1. If you are using **Sample Application** binary copy all the files inside Release folder except cefclient.exe to your debug/release folder. If you are using **Minimal Distribution** then copy files inside Release and Resources to your debug/release folder. 
+1. You can remive any *.lib, since they are not required for production.
+1.Now you will be able to build and run the solution.
