@@ -1,4 +1,4 @@
-## Vibeeshan.CefGlue
+## Chrome.Net
 
 This is a fork of Xilium.CefGlue (https://bitbucket.org/xilium/xilium.cefglue/overview ) to get more public support, Git based instead of original Hg based. More easy to use approach than original.
 
@@ -9,7 +9,7 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 
 ## Why Vibeeshan.CefGlue
 
-| Feature              | CefSharp          | Original CefGlue                       |Vibeeshan.CefGlue                      |
+| Feature              | CefSharp          | Original CefGlue                       |Chrome.Net                             |
 | -------------------- |:------------------| ---------------------------------------|---------------------------------------|
 | Framworks            | .Net 4.5.2        | **.Net Standard, .Net Core, .Net 4.0** |**.Net Standard, .Net Core, .Net 4.0** |
 | Platforms            | Windows           | **Winows, Linux, macOS**               |**Winows, Linux, macOS**               |
@@ -25,7 +25,9 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 1. If you don't build for .Net Core, disable or remove CefGlue.Demo.GtkSharp.csproj
 1. Refer the variable called **CEF_VERSION** in **CefGlue\Interop\version.g.cs** 
 1. Goto http://opensource.spotify.com/cefbuilds/index.html and search for build used in **CEF_VERSION**
+1. Create Two folders in your output directory (debug/release) called **x86** and **x64**.
 1. Download **Minimal Distribution** or **Sample Application** inside **Windows 32-bit Builds**
-1. If you are using **Sample Application** binary copy all the files inside Release folder except cefclient.exe to your debug/release folder. If you are using **Minimal Distribution** then copy files inside Release and Resources to your debug/release folder. 
+1. If you are using **Sample Application** binary copy all the files inside Release folder except cefclient.exe to your x86 folder. If you are using **Minimal Distribution** then copy files inside **Release** and **Resources** folders to your x86 folder. 
+1. Do the smae steps for x64 (download x64 and copy it to x64)
 1. You can remive any *.lib, since they are not required for production.
 1. Now you will be able to build and run the solution.
