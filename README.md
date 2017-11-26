@@ -17,7 +17,7 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 | Binary Distribution  | **Nuget, Binaries**| No (Source Code only)                 | **Nuget, Binaries**                   |
 | Documentation        | **High**          | No                                     | **High**                              |
 
-## build the code from scratch.
+## Build the code from scratch.
 
 1. Run the solution in **VS 2017** or higher (Tested with community edition).
 1. Set **CefGlue.Demo.WPF** or any (_CefGlue.Demo.*_) as startup project.
