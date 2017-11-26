@@ -26,4 +26,4 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 1. Download **Minimal Distribution** or **Sample Application** inside **Windows 32-bit Builds**
 1. If you are using **Sample Application** binary copy all the files inside Release folder except cefclient.exe to your debug/release folder. If you are using **Minimal Distribution** then copy files inside Release and Resources to your debug/release folder. 
 1. You can remive any *.lib, since they are not required for production.
-1.Now you will be able to build and run the solution.
+1. Now you will be able to build and run the solution.
