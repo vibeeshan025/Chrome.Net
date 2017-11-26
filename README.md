@@ -11,12 +11,12 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 
 | Feature              | CefSharp          | Original CefGlue                       |Chrome.Net                             |
 | -------------------- |:------------------| ---------------------------------------|---------------------------------------|
-| Framworks            | .Net 4.5.2        | **.Net Standard, .Net Core, .Net 4.0** |**.Net Standard, .Net Core, .Net 4.0** |
-| Platforms            | Windows           | **Winows, Linux, macOS**               |**Winows, Linux, macOS**               |
-| CPU                  | x86 or x64 at a time          | x86 or x64 at a time       |**Any CPU**                            |
-| Other Dependancies   | VC++ 2012/2013 Redistributable    | **No**                 |**No**                                 |
-| Binary Distribution  | **Nuget, Binaries**| No (Source Code only)                 | **Nuget, Binaries**                   |
-| Documentation        | **High**          | No                                     | **High**                              |
+| Framworks            | .Net 4.5.2        | **.Net Standard, .Net Core, .Net 4.0** | **.Net Standard, .Net Core, .Net 4.0** |
+| CPU                  | x86 or x64 at a time          | x86 or x64 at a time       | **Any CPU**                            |
+| Other Dependancies   | VC++ 2012/2013 Redistributable    | **No**                 | **No**                                 |
+| Binary Distribution  | **Nuget, Binaries**| No (Source Code only)                 | **Nuget, Binaries**                    |
+| Documentation        | **High**          | No                                     | **High**                               |
+| Full CEF API access  | Limited           | **High**                               | **High**                               |
 
 ## Build the code from scratch.
 
