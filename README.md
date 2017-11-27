@@ -22,7 +22,6 @@ CEF is a BSD-licensed open source project founded by Marshall Greenblatt in 2008
 
 1. Run the solution in **VS 2017** or higher (Tested with community edition).
 1. Set **CefGlue.Demo.WPF** or any (_CefGlue.Demo.*_) as startup project.
-1. If you don't build for .Net Core, disable or remove CefGlue.Demo.GtkSharp.csproj
 1. Refer the variable called **CEF_VERSION** in **CefGlue\Interop\version.g.cs** 
 1. Goto http://opensource.spotify.com/cefbuilds/index.html and search for build used in **CEF_VERSION**
 1. Create Two folders in your output directory (debug/release) called **x86** and **x64**.
