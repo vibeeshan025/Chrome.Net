@@ -10,100 +10,100 @@ namespace Xilium.CefGlue.Interop
     
     [StructLayout(LayoutKind.Sequential, Pack = libcef.ALIGN)]
     [SuppressMessage("Microsoft.Design", "CA1049:TypesThatOwnNativeResourcesShouldBeDisposable")]
-    internal unsafe struct cef_display_handler_t
+    internal unsafe struct cef_server_handler_t
     {
         internal cef_base_ref_counted_t _base;
-        internal IntPtr _on_address_change;
-        internal IntPtr _on_title_change;
-        internal IntPtr _on_favicon_urlchange;
-        internal IntPtr _on_fullscreen_mode_change;
-        internal IntPtr _on_tooltip;
-        internal IntPtr _on_status_message;
-        internal IntPtr _on_console_message;
-        internal IntPtr _on_auto_resize;
+        internal IntPtr _on_server_created;
+        internal IntPtr _on_server_destroyed;
+        internal IntPtr _on_client_connected;
+        internal IntPtr _on_client_disconnected;
+        internal IntPtr _on_http_request;
+        internal IntPtr _on_web_socket_request;
+        internal IntPtr _on_web_socket_connected;
+        internal IntPtr _on_web_socket_message;
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void add_ref_delegate(cef_display_handler_t* self);
+        internal delegate void add_ref_delegate(cef_server_handler_t* self);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate int release_delegate(cef_display_handler_t* self);
+        internal delegate int release_delegate(cef_server_handler_t* self);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate int has_one_ref_delegate(cef_display_handler_t* self);
+        internal delegate int has_one_ref_delegate(cef_server_handler_t* self);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void on_address_change_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_frame_t* frame, cef_string_t* url);
+        internal delegate void on_server_created_delegate(cef_server_handler_t* self, cef_server_t* server);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void on_title_change_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_string_t* title);
+        internal delegate void on_server_destroyed_delegate(cef_server_handler_t* self, cef_server_t* server);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void on_favicon_urlchange_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_string_list* icon_urls);
+        internal delegate void on_client_connected_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void on_fullscreen_mode_change_delegate(cef_display_handler_t* self, cef_browser_t* browser, int fullscreen);
+        internal delegate void on_client_disconnected_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate int on_tooltip_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_string_t* text);
+        internal delegate void on_http_request_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id, cef_string_t* client_address, cef_request_t* request);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate void on_status_message_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_string_t* value);
+        internal delegate void on_web_socket_request_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id, cef_string_t* client_address, cef_request_t* request, cef_callback_t* callback);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate int on_console_message_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_string_t* message, cef_string_t* source, int line);
+        internal delegate void on_web_socket_connected_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
-        internal delegate int on_auto_resize_delegate(cef_display_handler_t* self, cef_browser_t* browser, cef_size_t* new_size);
+        internal delegate void on_web_socket_message_delegate(cef_server_handler_t* self, cef_server_t* server, int connection_id, void* data, UIntPtr data_size);
         
         private static int _sizeof;
         
-        static cef_display_handler_t()
+        static cef_server_handler_t()
         {
-            _sizeof = Marshal.SizeOf(typeof(cef_display_handler_t));
+            _sizeof = Marshal.SizeOf(typeof(cef_server_handler_t));
         }
         
-        internal static cef_display_handler_t* Alloc()
+        internal static cef_server_handler_t* Alloc()
         {
-            var ptr = (cef_display_handler_t*)Marshal.AllocHGlobal(_sizeof);
-            *ptr = new cef_display_handler_t();
+            var ptr = (cef_server_handler_t*)Marshal.AllocHGlobal(_sizeof);
+            *ptr = new cef_server_handler_t();
             ptr->_base._size = (UIntPtr)_sizeof;
             return ptr;
         }
         
-        internal static void Free(cef_display_handler_t* ptr)
+        internal static void Free(cef_server_handler_t* ptr)
         {
             Marshal.FreeHGlobal((IntPtr)ptr);
         }
