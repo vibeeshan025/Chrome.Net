@@ -22,8 +22,9 @@ namespace CefGlue.Demo.WPF
 
             var subfolder = Environment.Is64BitProcess ? "x64" : "x86";
             var fullPath = Path.Combine(currentFolder, subfolder);
+            var tempPath = Path.Combine(currentFolder, "Cache");
 
-            CefBrowserLoader.Initialize(fullPath);
+            CefBrowserLoader.Initialize(fullPath, tempPath);
         }
     }
 }
