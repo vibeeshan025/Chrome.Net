@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -9,8 +10,8 @@ namespace Xilium.CefGlue
     public static class CefBrowserLoader
     {
         private static bool isLoaded = false;
-        
-        public static void Initialize(string path)
+
+        public static void Initialize(string path, string tempPath)
         {
             if (isLoaded == false)
             {
@@ -43,15 +44,18 @@ namespace Xilium.CefGlue
                     var exitCode = CefRuntime.ExecuteProcess(mainArgs, cefApp);
                     if (exitCode != -1) { return; }
 
+                    var cachePath = Path.Combine(tempPath, "ChacheStore");
+                    var logPath = Path.Combine(tempPath, "cef.log");
+                    
                     var cefSettings = new CefSettings
                     {
-                        // BrowserSubprocessPath = browserSubprocessPath,
+                        CachePath = cachePath,
                         SingleProcess = false,
                         WindowlessRenderingEnabled = true,
                         MultiThreadedMessageLoop = true,
-
+                       
                         LogSeverity = CefLogSeverity.Verbose,
-                        LogFile = "cef.log",
+                        LogFile = logPath,
                     };
 
                     try
