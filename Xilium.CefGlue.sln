@@ -1,17 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefGlue", "CefGlue\CefGlue.csproj", "{703FF300-34B9-48D4-A5D6-E741F48D5F95}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefGlue.WindowsForms", "CefGlue.WindowsForms\CefGlue.WindowsForms.csproj", "{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefGlue.WPF", "CefGlue.WPF\CefGlue.WPF.csproj", "{447C6790-E36E-4A54-BFAC-06C92FFF4AA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefGlue.Demo.WPF", "CefGlue.Demo.WPF\CefGlue.Demo.WPF.csproj", "{192019E5-B707-4871-8545-6DA6182DEE7D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CefGlue.Demo.WindowsForms", "CefGlue.Demo.WindowsForms\CefGlue.Demo.WindowsForms.csproj", "{A15E0AF0-174C-4410-ABA1-61698870AB8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +25,6 @@ Global
 		{703FF300-34B9-48D4-A5D6-E741F48D5F95}.Release|Any CPU.Build.0 = Release|Any CPU
 		{703FF300-34B9-48D4-A5D6-E741F48D5F95}.Release|x86.ActiveCfg = Release|Any CPU
 		{703FF300-34B9-48D4-A5D6-E741F48D5F95}.Release|x86.Build.0 = Release|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Debug|x86.Build.0 = Debug|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Release|x86.ActiveCfg = Release|Any CPU
-		{679AF14D-8FF5-4608-BFF8-EC1A7DED04A4}.Release|x86.Build.0 = Release|Any CPU
 		{447C6790-E36E-4A54-BFAC-06C92FFF4AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{447C6790-E36E-4A54-BFAC-06C92FFF4AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{447C6790-E36E-4A54-BFAC-06C92FFF4AA3}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -53,14 +41,6 @@ Global
 		{192019E5-B707-4871-8545-6DA6182DEE7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{192019E5-B707-4871-8545-6DA6182DEE7D}.Release|x86.ActiveCfg = Release|Any CPU
 		{192019E5-B707-4871-8545-6DA6182DEE7D}.Release|x86.Build.0 = Release|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Debug|x86.Build.0 = Debug|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Release|x86.ActiveCfg = Release|Any CPU
-		{A15E0AF0-174C-4410-ABA1-61698870AB8F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,7 +17,13 @@ namespace CefGlue.Demo.WPF
     {
         public App()
         {
-            CefBrowserLoader.Initialize();
+            var path = new Uri(typeof(App).Assembly.CodeBase).LocalPath;
+            var currentFolder = Path.GetDirectoryName(path);
+
+            var subfolder = Environment.Is64BitProcess ? "x64" : "x86";
+            var fullPath = Path.Combine(currentFolder, subfolder);
+
+            CefBrowserLoader.Initialize(fullPath);
         }
     }
 }

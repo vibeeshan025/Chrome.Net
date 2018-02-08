@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.IO;
     using System.Runtime.InteropServices;
     using System.Text;
     using Xilium.CefGlue.Interop;
@@ -19,7 +18,6 @@
         {
             _platform = DetectPlatform();
         }
-
 
         #region Platform Detection
         private static CefRuntimePlatform DetectPlatform()
@@ -78,14 +76,7 @@
         /// <exception cref="InvalidOperationException"></exception>
         public static void Load()
         {
-            var path = new Uri(typeof(CefRuntime).Assembly.CodeBase).LocalPath;
-            var currentFolder = Path.GetDirectoryName(path);
-
-            var is64 = IntPtr.Size == 8;
-            var subfolder = is64 ? "x64" : "x86";
-            var fullPath = Path.Combine(currentFolder, subfolder);
-
-            Load(fullPath);
+            Load(null);
         }
 
         /// <summary>

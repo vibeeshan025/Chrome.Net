@@ -9,22 +9,16 @@ namespace Xilium.CefGlue
     public static class CefBrowserLoader
     {
         private static bool isLoaded = false;
-
-        static CefBrowserLoader()
-        {
-            Initialize();
-        }
-
-        public static void Initialize()
+        
+        public static void Initialize(string path)
         {
             if (isLoaded == false)
             {
                 try
                 {
-
                     try
                     {
-                        CefRuntime.Load();
+                        CefRuntime.Load(path);
                     }
                     catch (DllNotFoundException ex)
                     {
@@ -55,6 +49,7 @@ namespace Xilium.CefGlue
                         SingleProcess = false,
                         WindowlessRenderingEnabled = true,
                         MultiThreadedMessageLoop = true,
+
                         LogSeverity = CefLogSeverity.Verbose,
                         LogFile = "cef.log",
                     };
