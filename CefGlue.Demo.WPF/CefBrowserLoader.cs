@@ -4,8 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using Xilium.CefGlue;
 
-namespace Xilium.CefGlue
+namespace CefGlue.Demo.WPF
 {
     public static class CefBrowserLoader
     {
@@ -46,14 +47,15 @@ namespace Xilium.CefGlue
 
                     var cachePath = Path.Combine(tempPath, "ChacheStore");
                     var logPath = Path.Combine(tempPath, "cef.log");
-                    
+
                     var cefSettings = new CefSettings
                     {
+                        BrowserSubprocessPath = @"D:\MubasherTrade-Extra\Chrome.Net\build\Debug\BrowserProcess.exe",
                         CachePath = cachePath,
                         SingleProcess = false,
                         WindowlessRenderingEnabled = true,
                         MultiThreadedMessageLoop = true,
-                       
+
                         LogSeverity = CefLogSeverity.Verbose,
                         LogFile = logPath,
                     };

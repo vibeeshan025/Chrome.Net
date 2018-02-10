@@ -14,6 +14,8 @@ namespace Xilium.CefGlue.WPF
 {
     public class WpfCefBrowser : ContentControl, IDisposable
     {
+        private static double dpi = 1;
+
         private static readonly Key[] HandledKeys =
         {
             Key.Tab, Key.Home, Key.End, Key.Left, Key.Right, Key.Up, Key.Down
@@ -128,6 +130,26 @@ namespace Xilium.CefGlue.WPF
 
         #endregion
 
+        #region DPI Helpers
+
+        public void SetZoom(double zoom)
+        {
+            if (_browserHost != null && _browserHost.GetZoomLevel() != zoom)
+                _browserHost.SetZoomLevel(dpi);
+        }
+
+        public static void SetDPI(double dpiValue)
+        {
+            dpi = dpiValue;
+        }
+
+        public static int TranslateDPI(double point)
+        {
+            return (int)(point * dpi);
+        }
+
+        #endregion
+
         public event LoadStartEventHandler LoadStart;
         public event LoadEndEventHandler LoadEnd;
         public event LoadingStateChangeEventHandler LoadingStateChange;
@@ -141,6 +163,8 @@ namespace Xilium.CefGlue.WPF
                 var e = new LoadStartEventArgs(frame);
                 this.LoadStart(this, e);
             }
+            
+            SetZoom(dpi);
         }
 
         internal void OnLoadEnd(CefFrame frame, int httpStatusCode)
@@ -150,6 +174,8 @@ namespace Xilium.CefGlue.WPF
                 var e = new LoadEndEventArgs(frame, httpStatusCode);
                 this.LoadEnd(this, e);
             }
+
+            SetZoom(dpi);
         }
         internal void OnLoadingStateChange(bool isLoading, bool canGoBack, bool canGoForward)
         {
@@ -158,6 +184,8 @@ namespace Xilium.CefGlue.WPF
                 var e = new LoadingStateChangeEventArgs(isLoading, canGoBack, canGoForward);
                 this.LoadingStateChange(this, e);
             }
+
+            SetZoom(dpi);
         }
         internal void OnLoadError(CefFrame frame, CefErrorCode errorCode, string errorText, string failedUrl)
         {
@@ -166,6 +194,9 @@ namespace Xilium.CefGlue.WPF
                 var e = new LoadErrorEventArgs(frame, errorCode, errorText, failedUrl);
                 this.LoadError(this, e);
             }
+
+
+            SetZoom(dpi);
         }
 
         public string StartUrl { get; set; }
@@ -182,8 +213,10 @@ namespace Xilium.CefGlue.WPF
                 Focusable = false,
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
-                Stretch = Stretch.None
+                Stretch = Stretch.Uniform
             };
+
+            _browserPageImage.SetValue(RenderOptions.BitmapScalingModeProperty, BitmapScalingMode.NearestNeighbor);
 
             this.Content = _browserPageImage;
         }
@@ -201,8 +234,8 @@ namespace Xilium.CefGlue.WPF
 
             if (_browserPageImage != null)
             {
-                var newWidth = (int)size.Width;
-                var newHeight = (int)size.Height;
+                var newWidth = (int)(size.Width * dpi);
+                var newHeight = (int)(size.Height * dpi);
 
                 _logger.Debug("BrowserResize. Old H{0}xW{1}; New H{2}xW{3}.", _browserHeight, _browserWidth, newHeight, newWidth);
 
@@ -298,8 +331,8 @@ namespace Xilium.CefGlue.WPF
                     {
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = 0,
-                            Y = 0
+                            X = TranslateDPI(0),
+                            Y = TranslateDPI(0)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -324,8 +357,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -353,8 +386,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y,
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -385,8 +418,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y,
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -417,8 +450,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y,
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         _browserHost.SendMouseWheelEvent(mouseEvent, 0, arg.Delta);
@@ -522,8 +555,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -548,8 +581,8 @@ namespace Xilium.CefGlue.WPF
 
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();
@@ -574,8 +607,8 @@ namespace Xilium.CefGlue.WPF
                         int delta = arg.Delta;
                         CefMouseEvent mouseEvent = new CefMouseEvent()
                         {
-                            X = (int)cursorPos.X,
-                            Y = (int)cursorPos.Y
+                            X = TranslateDPI(cursorPos.X),
+                            Y = TranslateDPI(cursorPos.Y)
                         };
 
                         mouseEvent.Modifiers = GetMouseModifiers();

@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CefBrowserLoader.cs" />
     <Compile Include="CefRuntime.cs" />
     <Compile Include="CefRuntimePlatform.cs" />
     <Compile Include="Classes.g\CefAccessibilityHandler.g.cs" />
