@@ -163,7 +163,7 @@ namespace Xilium.CefGlue.WPF
                 var e = new LoadStartEventArgs(frame);
                 this.LoadStart(this, e);
             }
-            
+
             SetZoom(dpi);
         }
 
@@ -1070,6 +1070,11 @@ namespace Xilium.CefGlue.WPF
         {
             if (_browser != null)
                 _browser.Reload();
+        }
+
+        public CefBrowser GetBrowser()
+        {
+            return _browser;
         }
 
         #endregion
